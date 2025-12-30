@@ -161,6 +161,8 @@ task-reopen:
 	@bash scripts/history_log.sh $(HISTORY_FILE) "task:reopen" "$(id)"
 
 task-validate:
+	@echo "🔍 Validating tasks..."
+	@node scripts/validate_tasks.js
 	@bash scripts/task_manager.sh validate
 	@bash scripts/history_log.sh $(HISTORY_FILE) "task:validate" "validated all tasks"
 
