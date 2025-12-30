@@ -1,0 +1,43 @@
+# System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Editor
+.vscode/*
+!.vscode/settings.json
+.idea/
+
+# Logs
+logs/
+*.log
+
+# Rules
+rules/
+
+# Tasks
+tasks/
+
+# Temporary files
+tmp/
+
+# History
+HISTORY.md
+
+# Checklists
+checklists/
+
+# Node modules (if any)
+node_modules/
+
+# Build outputs (keep for deployment)
+# Uncomment if you want to ignore build outputs:
+# build/
+# dist/
