@@ -1,0 +1,120 @@
+{
+  "version": "v2.0.0",
+  "lastUpdated": "2025-12-24",
+  "description": "繁體中文（台灣）- 完整導覽。",
+  "navigation": [
+    {
+      "section": "開始",
+      "items": [
+        {
+          "file": "guides/getting-started.json",
+          "title": "Getting Started"
+        }
+      ]
+    },
+    {
+      "section": "規則",
+      "items": [
+        {
+          "file": "rules/core-rules.json",
+          "title": "Core Rules"
+        },
+        {
+          "file": "rules/doc-site-rules.json",
+          "title": "Doc-Site Rules"
+        }
+      ]
+    },
+    {
+      "section": "指南",
+      "items": [
+        {
+          "file": "guides/ai-collaboration.json",
+          "title": "AI Collaboration"
+        },
+        {
+          "file": "guides/ai-workflow.json",
+          "title": "AI Workflow"
+        },
+        {
+          "file": "guides/build-and-deploy.json",
+          "title": "Build & Deploy"
+        },
+        {
+          "file": "guides/create-entity.json",
+          "title": "Create Entity"
+        },
+        {
+          "file": "guides/create-project-template.json",
+          "title": "Project Template"
+        },
+        {
+          "file": "guides/deployment-quick-guide.json",
+          "title": "Deployment Quick Guide"
+        },
+        {
+          "file": "guides/hosting-setup.json",
+          "title": "Hosting Setup"
+        },
+        {
+          "file": "guides/platform-automation.json",
+          "title": "Platform Automation"
+        },
+        {
+          "file": "guides/rollback-procedure.json",
+          "title": "Rollback Procedure"
+        },
+        {
+          "file": "guides/task-management.json",
+          "title": "Task Management"
+        },
+        {
+          "file": "guides/testing.json",
+          "title": "Testing"
+        }
+      ]
+    },
+    {
+      "section": "規格",
+      "items": [
+        {
+          "file": "specs/makefile-reference.json",
+          "title": "Makefile Reference"
+        },
+        {
+          "file": "specs/release-manifest-schema.json",
+          "title": "Release Manifest Schema"
+        },
+        {
+          "file": "specs/tyt-architecture.json",
+          "title": "TYT Architecture"
+        }
+      ]
+    },
+    {
+      "section": "任務",
+      "items": [
+        {
+          "pageKey": "tasks",
+          "title": "全部"
+        },
+        {
+          "pageKey": "tasksTodo",
+          "title": "待辦"
+        },
+        {
+          "pageKey": "tasksProgress",
+          "title": "進行中"
+        },
+        {
+          "pageKey": "tasksDone",
+          "title": "已完成"
+        }
+      ]
+    }
+  ],
+  "title": "@@MACHINE_TRANSLATED:zh-TW@@ TYT Documentation Site",
+  "searchLabel": "@@MACHINE_TRANSLATED:zh-TW@@ Search items",
+  "skeletonDescription": "@@MACHINE_TRANSLATED:zh-TW@@ Minimal skeleton. No dependencies. Ready for tyttoot integration.",
+  "navigationHint": "@@MACHINE_TRANSLATED:zh-TW@@ Use the sidebar to navigate. Content rendering and data loading will be powered by the platform."
+}

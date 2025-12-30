@@ -1,0 +1,28 @@
+{
+  "id": "006-match-github-project",
+  "title": "Map GitHub project to repository and automate sync",
+  "status": "TODO",
+  "priority": "High",
+  "created": "2025-12-26T10:30:00Z",
+  "assignee": null,
+  "description": "Design and implement mapping between the GitHub project at https://github.com/tyttoot/platform.git and this local repository. Include plan for webhooks, CI checks, issue→task sync, and PR templates.",
+  "acceptanceCriteria": [
+    { "id": "ac-1", "text": "A design doc describing mapping and automation exists (PR or doc entry)", "completed": false },
+    { "id": "ac-2", "text": "Minimal automation plan for webhooks and issue/task sync is defined", "completed": false },
+    { "id": "ac-3", "text": "PR template and issue template created in repo root (or documented)", "completed": false },
+    { "id": "ac-4", "text": "Owner/steps documented for connecting GitHub Project board and syncing tasks", "completed": false }
+  ],
+  "subtasks": [
+    { "id": "st-1", "text": "Draft design: goals, scope, data flows (GitHub project → repo)", "completed": false },
+    { "id": "st-2", "text": "List required GitHub permissions/webhook events and CI interactions", "completed": false },
+    { "id": "st-3", "text": "Create PR/Issue templates and sample automation scripts", "completed": false },
+    { "id": "st-4", "text": "Document rollout plan and owners", "completed": false }
+  ],
+  "tags": ["github","project","automation","integration"],
+  "relatedFiles": [
+    "tasks/data/TODO/006-match-github-project.json",
+    "document/git-management-rules.md",
+    ".github/" 
+  ],
+  "notes": "Start by reviewing existing release and push scripts (scripts/push_to_git.sh, scripts/doc_version.sh) and platform rules. Coordinate with repo owner to add webhooks."
+}

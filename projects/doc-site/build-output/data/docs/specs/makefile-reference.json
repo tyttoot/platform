@@ -1,0 +1,81 @@
+{
+  "id": "specs.makefile-reference",
+  "version": "v2.0.0",
+  "category": "specs",
+  "title": "Makefile Reference",
+  "tags": ["makefile", "commands", "automation", "reference"],
+  "content": "Complete reference for all Make commands in tyttoot platform",
+  "links": [
+    { "label": "Makefile Source", "href": "/Makefile" }
+  ],
+  "items": [
+    {
+      "title": "Server Commands",
+      "content": "Commands for managing the development server",
+      "items": [
+        { "title": "make serve", "content": "Start PHP dev server on port 8080 and open doc site in browser" },
+        { "title": "make stop", "content": "Stop PHP dev server" },
+        { "title": "make status", "content": "Show PHP server status (check if running)" },
+        { "title": "make open-doc", "content": "Open doc site URL in browser" }
+      ]
+    },
+    {
+      "title": "Documentation Commands",
+      "content": "Commands for managing documentation",
+      "items": [
+        { "title": "make validate", "content": "Validate all doc JSON files against schema" },
+        { "title": "make new-doc category=.. slug=..", "content": "Scaffold a new doc JSON file. Example: make new-doc category=guides slug=my-guide" }
+      ]
+    },
+    {
+      "title": "Entity & Project Commands",
+      "content": "Commands for scaffolding new components",
+      "items": [
+        { "title": "make new-entity name=.. category=.. [description=..]", "content": "Scaffold new entity module" },
+        { "title": "make new-project name=..", "content": "Scaffold new project from template" }
+      ]
+    },
+    {
+      "title": "Task Management",
+      "content": "Commands for task tracking system",
+      "items": [
+        { "title": "make task-new id=.. title=.. [priority=..] [assignee=..]", "content": "Create new task" },
+        { "title": "make task-list [status=..]", "content": "List tasks (all or filtered by status: TODO, IN_PROGRESS, DONE)" },
+        { "title": "make task-show id=..", "content": "Show task details" },
+        { "title": "make task-move id=.. to=..", "content": "Move task to new status" },
+        { "title": "make task-done id=..", "content": "Mark task as done (move to DONE)" },
+        { "title": "make task-reopen id=..", "content": "Reopen completed task (move to REOPEN)" },
+        { "title": "make task-validate", "content": "Validate all task JSON files" }
+      ]
+    },
+    {
+      "title": "Testing Commands",
+      "content": "Commands for running tests",
+      "items": [
+        { "title": "make test", "content": "Run all tests (unit + integration)" },
+        { "title": "make test-unit", "content": "Run unit tests only" },
+        { "title": "make test-integration", "content": "Run integration tests only" },
+        { "title": "make test-watch", "content": "Watch mode - re-run tests on file changes" },
+        { "title": "make test-browser", "content": "Open test runner in browser" }
+      ]
+    },
+    {
+      "title": "Deployment Commands",
+      "content": "Commands for building and deploying projects",
+      "items": [
+        { "title": "make build project=<name> [version=..]", "content": "Build project to build-output/ directory" },
+        { "title": "make push project=<name> version=.. [branch=.. msg=..]", "content": "Push release to git with tagging" },
+        { "title": "make backup-database version=.. paths=..", "content": "Backup database files for version" }
+      ]
+    },
+    {
+      "title": "History & Versioning",
+      "content": "Commands for tracking changes",
+      "items": [
+        { "title": "make history-add action=.. msg=..", "content": "Append a history entry to logs/history.jsonl" },
+        { "title": "make history-show", "content": "Show latest 30 history entries" },
+        { "title": "make version tag=.. msg=..", "content": "Create git tag and update HISTORY" }
+      ]
+    }
+  ]
+}

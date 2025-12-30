@@ -1,0 +1,6 @@
+{
+  "title": "TYT Documentation Site",
+  "searchLabel": "Search items",
+  "skeletonDescription": "Minimal skeleton. No dependencies. Ready for tyttoot integration.",
+  "navigationHint": "Use the sidebar to navigate. Content rendering and data loading will be powered by the platform."
+}

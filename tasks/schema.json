@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Task Schema",
+  "description": "Schema for task management in TYT Platform v2",
+  "type": "object",
+  "required": ["id", "title", "status", "created"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[0-9]{3}-[a-z0-9-]+$",
+      "description": "Task ID (e.g., 001-test-feature)"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "description": "Task title"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["TODO", "IN_PROGRESS", "DONE", "REOPEN"],
+      "description": "Current task status"
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["Low", "Medium", "High", "Critical"],
+      "default": "Medium"
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Creation timestamp"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last update timestamp"
+    },
+    "assignee": {
+      "type": "string",
+      "description": "Person assigned to task"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed task description"
+    },
+    "acceptanceCriteria": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "text", "completed"],
+        "properties": {
+          "id": { "type": "string" },
+          "text": { "type": "string" },
+          "completed": { "type": "boolean" }
+        }
+      }
+    },
+    "subtasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "text", "completed"],
+        "properties": {
+          "id": { "type": "string" },
+          "text": { "type": "string" },
+          "completed": { "type": "boolean" }
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "relatedFiles": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "notes": {
+      "type": "string"
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["timestamp", "action", "status"],
+        "properties": {
+          "timestamp": { "type": "string", "format": "date-time" },
+          "action": { "type": "string" },
+          "status": { "type": "string" },
+          "note": { "type": "string" }
+        }
+      }
+    }
+  }
+}

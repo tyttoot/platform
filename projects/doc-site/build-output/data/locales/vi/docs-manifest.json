@@ -1,0 +1,57 @@
+{
+  "version": "v2.0.0",
+  "lastUpdated": "2025-12-24",
+  "description": "Tiếng Việt - Navigation đầy đủ.",
+  "navigation": [
+    {
+      "section": "Bắt đầu",
+      "items": [
+        { "file": "guides/getting-started.json", "title": "Getting Started" }
+      ]
+    },
+    {
+      "section": "Quy tắc",
+      "items": [
+        { "file": "rules/core-rules.json", "title": "Core Rules" },
+        { "file": "rules/doc-site-rules.json", "title": "Doc-Site Rules" }
+      ]
+    },
+    {
+      "section": "Hướng dẫn",
+      "items": [
+        { "file": "guides/ai-collaboration.json", "title": "AI Collaboration" },
+        { "file": "guides/ai-workflow.json", "title": "AI Workflow" },
+        { "file": "guides/build-and-deploy.json", "title": "Build & Deploy" },
+        { "file": "guides/create-entity.json", "title": "Create Entity" },
+        { "file": "guides/create-project-template.json", "title": "Project Template" },
+        { "file": "guides/deployment-quick-guide.json", "title": "Deployment Quick Guide" },
+        { "file": "guides/hosting-setup.json", "title": "Hosting Setup" },
+        { "file": "guides/platform-automation.json", "title": "Platform Automation" },
+        { "file": "guides/rollback-procedure.json", "title": "Rollback Procedure" },
+        { "file": "guides/task-management.json", "title": "Task Management" },
+        { "file": "guides/testing.json", "title": "Testing" }
+      ]
+    },
+    {
+      "section": "Thông số",
+      "items": [
+        { "file": "specs/makefile-reference.json", "title": "Makefile Reference" },
+        { "file": "specs/release-manifest-schema.json", "title": "Release Manifest Schema" },
+        { "file": "specs/tyt-architecture.json", "title": "TYT Architecture" }
+      ]
+    },
+    {
+      "section": "Công việc",
+      "items": [
+        { "pageKey": "tasks", "title": "Tất cả" },
+        { "pageKey": "tasksTodo", "title": "Cần làm" },
+        { "pageKey": "tasksProgress", "title": "Đang làm" },
+        { "pageKey": "tasksDone", "title": "Hoàn thành" }
+      ]
+    }
+  ],
+  "title": "Trang tài liệu TYT",
+  "searchLabel": "Tìm kiếm mục",
+  "skeletonDescription": "Bộ khung tối giản. Không có phụ thuộc. Sẵn sàng cho tích hợp tyttoot.",
+  "navigationHint": "Sử dụng thanh bên để điều hướng. Kết xuất nội dung và tải dữ liệu sẽ được cung cấp bởi nền tảng."
+}

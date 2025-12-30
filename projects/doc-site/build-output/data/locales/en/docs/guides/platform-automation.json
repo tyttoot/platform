@@ -1,0 +1,81 @@
+{
+  "id": "guides.platform-automation",
+  "version": "v2.0.0",
+  "category": "guides",
+  "title": "Platform Automation",
+  "tags": ["automation","makefile","scripts","templates","workflow"],
+  "content": "Complete guide to TYT Platform v2 automation tools, commands, and workflows for efficient development.",
+  "links": [],
+  "items": [
+    {
+      "id": "AUTO-01",
+      "title": "Server Management",
+      "why": "Quick dev server control",
+      "what": "Start/stop/status PHP server for local development",
+      "how": "make serve (start+open), make stop, make status"
+    },
+    {
+      "id": "AUTO-02",
+      "title": "Documentation Workflow",
+      "why": "Manage doc-site content efficiently",
+      "what": "Scaffold, validate, and version documentation",
+      "how": "make new-doc category=guides slug=my-note; make validate"
+    },
+    {
+      "id": "AUTO-03",
+      "title": "Entity Scaffolding",
+      "why": "Fast entity module creation with consistent patterns",
+      "what": "Generate entity modules from ES5 templates",
+      "how": "make new-entity name=storage category=common description='Storage helper'"
+    },
+    {
+      "id": "AUTO-04",
+      "title": "Project Scaffolding",
+      "why": "Quick project initialization with standard structure",
+      "what": "Generate complete project structure (www/, data/, deploy/)",
+      "how": "make new-project name=my-app → opens skeleton at projects/my-app/"
+    },
+    {
+      "id": "AUTO-05",
+      "title": "History Logging",
+      "why": "Track all platform actions and changes",
+      "what": "Append timestamped entries to logs/history.jsonl",
+      "how": "make history-add action='feature:add' msg='Description'; make history-show"
+    },
+    {
+      "id": "AUTO-06",
+      "title": "Version Management",
+      "why": "Semantic versioning with git tags and changelog",
+      "what": "Create git tags, update HISTORY.md automatically",
+      "how": "make version tag=v2.1.0 msg='Feature release'"
+    },
+    {
+      "id": "AUTO-07",
+      "title": "Validation Scripts",
+      "why": "Catch doc schema errors early",
+      "what": "Check JSON docs for required fields (id/category/title/items)",
+      "how": "make validate → runs scripts/validate_docs.js"
+    },
+    {
+      "id": "AUTO-08",
+      "title": "Templates Structure",
+      "why": "Reusable patterns for consistency",
+      "what": "Entity: templates/entity-template/; Project: templates/project-template/",
+      "how": "Customize templates/*.template files; placeholders: {{NAME}}, {{CATEGORY}}, {{DESCRIPTION}}"
+    },
+    {
+      "id": "AUTO-09",
+      "title": "Complete Makefile Commands",
+      "why": "Single source of truth for automation",
+      "what": "All available make targets documented",
+      "how": "make help → lists: serve, stop, status, open-doc, validate, new-doc, new-entity, new-project, version, history-add, history-show"
+    },
+    {
+      "id": "AUTO-10",
+      "title": "Workflow Best Practices",
+      "why": "Efficient development cycle",
+      "what": "1) make serve → 2) create entity/project → 3) validate → 4) log history → 5) version tag",
+      "how": "Always validate before committing; log significant changes; use templates for consistency"
+    }
+  ]
+}

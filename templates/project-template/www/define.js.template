@@ -1,0 +1,7 @@
+// Project config for {{NAME}}
+tyt.srcConfig = {
+  projectName: '{{NAME}}',
+  projectPath: './projects/{{NAME}}/www/',
+  mode: 'dev',
+  currentPage: 'home'
+};

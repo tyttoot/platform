@@ -1,0 +1,36 @@
+{
+  "id": "005-platform-i18n-common-function",
+  "title": "Create common i18n function for platform-wide full translation",
+  "status": "TODO",
+  "priority": "High",
+  "created": "2025-12-26T10:05:00Z",
+  "assignee": null,
+  "description": "Implement a shared i18n utility/function across the platform to provide a single API for full translations (docs, UI, tests). This should make it easy to translate strings, load locale bundles, and apply translations consistently across doc-site, entities, and other projects.",
+  "acceptanceCriteria": [
+    { "id": "ac-1", "text": "Expose a stable function `i18n.t(key, opts)` usable across platform modules", "completed": false },
+    { "id": "ac-2", "text": "Support loading locale bundles from `data/locales/{locale}/` and fallback to canonical docs", "completed": false },
+    { "id": "ac-3", "text": "Provide helper to pre-fill missing keys (machine-translate) with clear review markers", "completed": false },
+    { "id": "ac-4", "text": "Backward-compatible API so doc-site and existing entities can migrate incrementally", "completed": false },
+    { "id": "ac-5", "text": "Unit tests covering API and integration tests for doc loading with different locales", "completed": false },
+    { "id": "ac-6", "text": "Add CI check to detect missing keys across locales and fail on unexpected literals in code/tests", "completed": false }
+  ],
+  "subtasks": [
+    { "id": "st-1", "text": "Design API surface for common i18n (t, init, loadBundle, listMissing)", "completed": false },
+    { "id": "st-2", "text": "Implement `entity/common/i18n.js` refactor to provide shared functions", "completed": false },
+    { "id": "st-3", "text": "Update doc-site and entity consumers to use new API (gradual migration)", "completed": false },
+    { "id": "st-4", "text": "Add `scripts/i18n-prefill.js` enhancements to call translation API and mark machine translations", "completed": false },
+    { "id": "st-5", "text": "Add CI workflow (i18n-check) to repo (if not already present) and enforce on PRs", "completed": false },
+    { "id": "st-6", "text": "Document migration guide and examples", "completed": false }
+  ],
+  "tags": ["i18n", "platform", "tech-debt", "localization"],
+  "relatedFiles": [
+    "entity/common/i18n.js",
+    "projects/doc-site/data/locales/",
+    "scripts/i18n-prefill.js",
+    ".github/workflows/i18n-check.yml"
+  ],
+  "notes": "This task follows from doc-site i18n work; aim is platform-level consolidation and safer automation for translations.",
+  "history": [
+    { "timestamp": "2025-12-26T10:05:00Z", "action": "created", "status": "TODO", "note": "Planned after doc-site language selector completion" }
+  ]
+}

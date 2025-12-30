@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{NAME}}</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>{{NAME}}</h1>
+    </header>
+    <main>
+      <p>Project skeleton ready. Powered by TYT Platform v2.</p>
+    </main>
+  </div>
+
+  <script src="../../../tyt.js"></script>
+  <script src="define.js"></script>
+</body>
+</html>

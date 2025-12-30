@@ -1,0 +1,99 @@
+{
+  "id": "guides.build-and-deploy",
+  "version": "v2.0.0",
+  "category": "guides",
+  "title": "Build and Deploy Workflow",
+  "tags": ["deployment", "build", "release", "git"],
+  "content": "Complete workflow to build, test, and deploy projects from local to hosting.",
+  "links": [
+    {"text": "Rollback Procedure", "url": "#guides.rollback-procedure"},
+    {"text": "Hosting Setup", "url": "#guides.hosting-setup"},
+    {"text": "Release Manifest Schema", "url": "#specs.release-manifest-schema"}
+  ],
+  "items": [
+    {
+      "id": "BD-01",
+      "title": "Prepare for build",
+      "why": "Ensure code is ready for release",
+      "what": "Run tests and validation before build",
+      "how": "make test && make validate — Both must pass before proceeding"
+    },
+    {
+      "id": "BD-02",
+      "title": "Build project",
+      "why": "Create self-contained deployment artifact",
+      "what": "Generate build-output folder with all necessary files",
+      "how": "make build project=<name> version=<X.Y.Z> — Creates projects/<name>/build-output/ with .release-manifest.json"
+    },
+    {
+      "id": "BD-03",
+      "title": "Verify build output",
+      "why": "Ensure build completed correctly",
+      "what": "Check folder structure and manifest",
+      "how": "ls -la projects/<name>/build-output/ — Verify www/, data/, and .release-manifest.json exist"
+    },
+    {
+      "id": "BD-04",
+      "title": "Review manifest",
+      "why": "Validate release metadata",
+      "what": "Check version, git info, changes count, rollback info",
+      "how": "cat projects/<name>/build-output/.release-manifest.json — Review all fields"
+    },
+    {
+      "id": "BD-05",
+      "title": "Push to git with tagging",
+      "why": "Version control and enable rollback capability",
+      "what": "Commit code, create git tag, push to remote",
+      "how": "make push project=<name> version=vX.Y.Z branch=<main|staging> msg='Release description' — Creates tag and pushes"
+    },
+    {
+      "id": "BD-06",
+      "title": "Verify git tag",
+      "why": "Confirm version was tagged correctly",
+      "what": "Check git tag exists",
+      "how": "git tag -l vX.Y.Z — Should show the tag you just created"
+    },
+    {
+      "id": "BD-07",
+      "title": "Pull on hosting",
+      "why": "Deploy code to production/staging server",
+      "what": "SSH to hosting, pull latest code from git",
+      "how": "On hosting: git pull origin <branch> — Downloads new version"
+    },
+    {
+      "id": "BD-08",
+      "title": "Run migrations (if any)",
+      "why": "Update database schema or config",
+      "what": "Execute migration scripts included in deployment",
+      "how": "On hosting: bash migrations/migrate_vX.Y.Z.sh (if exists)"
+    },
+    {
+      "id": "BD-09",
+      "title": "Create database backup",
+      "why": "Enable rollback to previous data state",
+      "what": "Backup database files per-version",
+      "how": "On hosting: make backup-database version=vX.Y.Z paths='database/local data/' — Creates backups/vX.Y.Z-backup.tar.gz"
+    },
+    {
+      "id": "BD-10",
+      "title": "Verify deployment",
+      "why": "Ensure application works correctly",
+      "what": "Test critical functionality",
+      "how": "Open application URL, test key features, check logs for errors"
+    },
+    {
+      "id": "BD-11",
+      "title": "Log deployment",
+      "why": "Track deployment history",
+      "what": "Record deployment action in history",
+      "how": "make history-add action='deploy' msg='vX.Y.Z deployed to <server>' — Logs timestamp and details"
+    },
+    {
+      "id": "BD-12",
+      "title": "Cleanup local build",
+      "why": "Free disk space (code already in git)",
+      "what": "Delete build-output folder after successful push",
+      "how": "rm -rf projects/<name>/build-output/ — Optional, can keep for reference"
+    }
+  ]
+}

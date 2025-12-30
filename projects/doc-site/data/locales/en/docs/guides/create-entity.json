@@ -1,0 +1,17 @@
+{
+  "id": "guides.create-entity",
+  "version": "v2.0.0",
+  "category": "guides",
+  "title": "Create an Entity",
+  "tags": ["entity","guide","starter"],
+  "content": "Steps to create a new reusable entity in TYT Platform v2.",
+  "links": [],
+  "items": [
+    {"id":"G-2001","title":"Name it generically","why":"Avoid project coupling","what":"Pick a domain name (e.g., movement, camera, loader)","how":"Use lowercase file names; no project keywords"},
+    {"id":"G-2002","title":"Place under entity/","why":"Shared across projects","what":"entity/<domain>/<file>.js","how":"Keep logic pure; no DOM in shared entities unless UI domain"},
+    {"id":"G-2003","title":"Define via tyt.define","why":"Merge-safe namespace","what":"tyt.define(tyt, 'lib', { common: { ... } })","how":"Follow existing pattern in entity/common/..."},
+    {"id":"G-2004","title":"ES5 only","why":"Compatibility","what":"Avoid arrow functions, let/const, class","how":"Use function + var"},
+    {"id":"G-2005","title":"Document intent (VN)","why":"Clarity","what":"Add short VN comment for intent/constraints","how":"// Muc dich: ..."},
+    {"id":"G-2006","title":"Wire require in lib/index","why":"Load order","what":"Call tyt.require('lib/<path>') in entity/index.js","how":"Group requires near top"}
+  ]
+}

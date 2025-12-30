@@ -1,0 +1,29 @@
+{
+  "version": "vTEST",
+  "timestamp": "2025-12-24T05:51:36Z",
+  "project": "doc-site",
+  "branch": "dev-003-deployment-workflow",
+  "buildOutputPath": "projects/doc-site/build-output/",
+  "git": {
+    "commit": "0731a67",
+    "tag": "vvTEST",
+    "author": "Norman"
+  },
+  "changes": {
+    "filesAdded":        1,
+    "filesModified":        4,
+    "filesDeleted":        0,
+    "totalChanged":        5,
+    "description": "Build output generated for release"
+  },
+  "locales": [\n    { "id": "en", "path": "data/locales/en" },\n    { "id": "vi", "path": "data/locales/vi" },\n    { "id": "zh-TW", "path": "data/locales/zh-TW" }\n  ],
+  "database": {
+    "backupLocation": "backups/vvTEST-backup.tar.gz",
+    "backupTimestamp": "2025-12-24T05:51:36Z",
+    "note": "Database snapshot backup location reference (created on hosting)"
+  },
+  "rollbackInfo": {
+    "rollbackCommand": "git checkout vvTEST"
+  },
+  "releaseNotes": "Release vTEST of doc-site"
+}

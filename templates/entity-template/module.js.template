@@ -1,0 +1,24 @@
+// entity/{{CATEGORY}}/{{NAME}}.js
+// {{DESCRIPTION}}
+
+if (typeof tyt === 'undefined') { window.tyt = {}; }
+
+(function(){
+  tyt.lib = tyt.lib || {};
+  tyt.lib.{{CATEGORY}} = tyt.lib.{{CATEGORY}} || {};
+
+  /**
+   * {{NAME}} module
+   * @description {{DESCRIPTION}}
+   */
+
+  function init() {
+    // Initialization logic
+    return true;
+  }
+
+  // Public API
+  tyt.lib.{{CATEGORY}}.{{NAME}} = {
+    init: init
+  };
+})();

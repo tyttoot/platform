@@ -1,0 +1,46 @@
+{
+  "id": "guides.ai-collaboration",
+  "version": "v2.0.0",
+  "category": "guides",
+  "title": "AI Collaboration Guide",
+  "tags": ["ai","workflow","rules","productivity"],
+  "content": "How to work with AI effectively in the TYT Platform workflow.",
+  "links": [],
+  "items": [
+    {
+      "id": "G-1001",
+      "title": "Context & Plan First",
+      "why": "AI needs clear scope to avoid rework.",
+      "what": "Always share goal, scope, constraints, and the target files/paths upfront.",
+      "how": "Provide: objective, expected outputs, touched files, and acceptance criteria before coding."
+    },
+    {
+      "id": "G-1002",
+      "title": "Small, Reviewable Steps",
+      "why": "Reduces risk and makes review easy.",
+      "what": "Prefer small patches and quick tests instead of large diffs.",
+      "how": "Implement feature slices; run quick checks; summarize changes and next steps."
+    },
+    {
+      "id": "G-1003",
+      "title": "Use Automation",
+      "why": "Consistency and speed.",
+      "what": "Use Makefile/scripts for repetitive tasks; log actions in history.",
+      "how": "`make serve`, `make history-add`, future `make validate`/`new-entity`."
+    },
+    {
+      "id": "G-1004",
+      "title": "Respect Core Rules",
+      "why": "Keeps platform generic and reusable.",
+      "what": "Follow core rules on naming, ES5, folder structure, no external frameworks.",
+      "how": "Check rules JSON before adding modules; keep entity/ generic."
+    },
+    {
+      "id": "G-1005",
+      "title": "Communicate Uncertainty",
+      "why": "Avoid silent mistakes.",
+      "what": "If blocked or unsure, ask or log assumptions.",
+      "how": "Add to history or notes when making assumptions; propose options."
+    }
+  ]
+}

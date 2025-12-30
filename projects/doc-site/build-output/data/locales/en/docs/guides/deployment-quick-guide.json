@@ -1,0 +1,30 @@
+{
+  "id": "guides.deployment-quick-guide",
+  "version": "v2.0.0",
+  "category": "guides",
+  "title": "Hướng dẫn Deploy Nhanh",
+  "tags": ["deployment","guide","quick-start","commands"],
+  "content": "Hướng dẫn chi tiết 8 bước deploy từ local machine tới hosting server với ví dụ cụ thể. Mỗi bước có lệnh, ví dụ, và kết quả mong đợi.",
+  "links": [
+    {"text": "Build & Deploy Chi Tiết", "url": "#guides.build-and-deploy"},
+    {"text": "Rollback Procedure", "url": "#guides.rollback-procedure"},
+    {"text": "Hosting Setup", "url": "#guides.hosting-setup"}
+  ],
+  "items": [
+    {"id":"DQ-01","title":"Build Project","why":"Tạo bản build sẵn sàng deploy","what":"make build project=doc-site version=v2.0.0","how":"Tạo folder projects/doc-site/build-output/ với .release-manifest.json"},
+    {"id":"DQ-02","title":"Test & Validate","why":"Đảm bảo code chất lượng","what":"make test && make validate","how":"Chạy tests và kiểm tra JSON schemas trước push"},
+    {"id":"DQ-03","title":"Commit Code","why":"Lưu changes vào git","what":"git commit -m \"[RELEASE] vX.Y.Z - Description\"","how":"Format: [RELEASE] vX.Y.Z - mô tả ngắn gọn"},
+    {"id":"DQ-04","title":"Create Git Tag","why":"Đánh dấu version","what":"git tag -a vX.Y.Z -m \"Release notes\"","how":"Tag snapshot của code tại thời điểm đó"},
+    {"id":"DQ-05","title":"Push to Git","why":"Đẩy code và tag lên remote","what":"git push origin <branch> && git push origin vX.Y.Z","how":"Push code branch trước, sau đó push tag"},
+    {"id":"DQ-06","title":"Backup Database","why":"Bảo vệ dữ liệu trước deploy","what":"make backup-database version=vX.Y.Z paths=\"database/local\"","how":"Tạo tar.gz archive trong backups/ folder"},
+    {"id":"DQ-07","title":"Deploy on Hosting","why":"Triển khai code lên production","what":"git pull origin <branch> && sudo systemctl restart project","how":"SSH vào hosting, pull code, restart service"},
+    {"id":"DQ-08","title":"Verify Deployment","why":"Xác nhận deploy thành công","what":"curl http://domain.com && check logs","how":"Test website, check logs, verify version"},
+    {"id":"DQ-09","title":"Rollback if Needed","why":"Khôi phục nếu có lỗi","what":"git checkout v<old-version> && restore backup","how":"Checkout version cũ, restore database, restart"},
+    {"id":"DQ-10","title":"Build Commands","why":"Tham khảo nhanh các lệnh","what":"make build, make test, make push, make backup-database","how":"Xem phần Commands Reference để xem tất cả"},
+    {"id":"DQ-11","title":"Git Commands","why":"Lệnh git cần thiết","what":"git add/commit/tag/push","how":"Sử dụng format [RELEASE] vX.Y.Z cho commit"},
+    {"id":"DQ-12","title":"Hosting Commands","why":"Lệnh trên hosting server","what":"git pull, systemctl restart, check logs","how":"SSH vào hosting và chạy lệnh cần thiết"},
+    {"id":"DQ-13","title":"Troubleshooting","why":"Xử lý khi có sự cố","what":"Build fail, Test fail, Git push fail, Rollback fail","how":"Kiểm tra error message, xem solutions trong guide"},
+    {"id":"DQ-14","title":"⚠️ IMPORTANT: Doc-Site Checklist","why":"Tránh quên các bước khi thêm guides","what":"Bất cứ lúc nào thêm docs phải nhớ","how":"1) id='guides.xxx' 2) Có 'items' array 3) Có 'links' field 4) make validate 5) git commit"}
+  ]
+}
+

@@ -1,0 +1,27 @@
+name: i18n checks
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  i18n:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Run i18n missing keys check
+        run: |
+          node scripts/i18n-missing-keys.js --locales projects/doc-site/data/locales --base en --failOnMissing true
+
+      - name: Run tests literal string check
+        run: |
+          node scripts/find-test-literals.js --tests projects/doc-site/tests --minLength 5 --maxAllowed 0 --failOnExcess true

@@ -1,0 +1,6 @@
+{
+  "title": "TYT 文件網站",
+  "searchLabel": "搜索項目",
+  "skeletonDescription": "最小骨架。無依賴項。準備好進行 tyttoot 集成。",
+  "navigationHint": "使用側邊欄進行導航。內容渲染和數據加載將由平台提供。"
+}

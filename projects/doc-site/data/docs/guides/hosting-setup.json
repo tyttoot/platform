@@ -1,0 +1,111 @@
+{
+  "id": "guides.hosting-setup",
+  "version": "v2.0.0",
+  "category": "guides",
+  "title": "Hosting Setup for Deployment",
+  "tags": ["hosting", "server", "deployment", "automation"],
+  "content": "Setup hosting environment to receive and deploy code from git repository.",
+  "links": [
+    {"text": "Build and Deploy", "url": "#guides.build-and-deploy"}
+  ],
+  "items": [
+    {
+      "id": "HS-01",
+      "title": "Prepare hosting environment",
+      "why": "Set up basic infrastructure",
+      "what": "Install required software (git, PHP, Node, etc.)",
+      "how": "On hosting: apt-get install git php8.2-cli nodejs (Ubuntu) OR yum install git php nodejs (CentOS)"
+    },
+    {
+      "id": "HS-02",
+      "title": "Create directory structure",
+      "why": "Organize code, backups, logs",
+      "what": "Set up folder layout",
+      "how": "mkdir -p /var/www/platform/{code,backups,logs,migrations} — Create necessary folders"
+    },
+    {
+      "id": "HS-03",
+      "title": "Setup git credentials",
+      "why": "Allow hosting to pull from repository",
+      "what": "Configure SSH key or access token",
+      "how": "ssh-keygen -t rsa -b 4096 -C 'hosting@server.com' → Add public key to GitHub/GitLab deploy keys"
+    },
+    {
+      "id": "HS-04",
+      "title": "Clone repository",
+      "why": "Get initial codebase",
+      "what": "Clone git repository to hosting",
+      "how": "cd /var/www/platform/code && git clone git@github.com:user/platform.git . — Clone to current directory"
+    },
+    {
+      "id": "HS-05",
+      "title": "Checkout target branch",
+      "why": "Deploy from correct branch (staging or production)",
+      "what": "Switch to deployment branch",
+      "how": "git checkout staging — Or git checkout main for production"
+    },
+    {
+      "id": "HS-06",
+      "title": "Setup auto-pull mechanism (webhook)",
+      "why": "Automated deployment on git push",
+      "what": "Create webhook endpoint to receive push notifications",
+      "how": "Create webhook.php that runs: git pull origin <branch> when triggered; configure webhook URL in GitHub/GitLab settings"
+    },
+    {
+      "id": "HS-07",
+      "title": "Setup auto-pull mechanism (cron job)",
+      "why": "Alternative to webhook - periodic pull",
+      "what": "Cron job to pull changes every N minutes",
+      "how": "crontab -e → Add: '*/5 * * * * cd /var/www/platform/code && git pull origin staging >> /var/www/platform/logs/git-pull.log 2>&1' — Pulls every 5 minutes"
+    },
+    {
+      "id": "HS-08",
+      "title": "Setup deployment logging",
+      "why": "Track all pull/deploy actions",
+      "what": "Log git pull results and timestamps",
+      "how": "Redirect output to logs/git-pull.log (shown in HS-07); rotate logs with logrotate"
+    },
+    {
+      "id": "HS-09",
+      "title": "Configure file permissions",
+      "why": "Ensure web server can read files",
+      "what": "Set ownership and permissions",
+      "how": "chown -R www-data:www-data /var/www/platform/code && chmod -R 755 /var/www/platform/code — Adjust user/group as needed"
+    },
+    {
+      "id": "HS-10",
+      "title": "Setup web server (Apache/Nginx)",
+      "why": "Serve the application",
+      "what": "Configure virtual host to point to application",
+      "how": "Create /etc/nginx/sites-available/platform.conf with root pointing to /var/www/platform/code/projects/doc-site/www/"
+    },
+    {
+      "id": "HS-11",
+      "title": "Setup environment variables",
+      "why": "Store credentials and config",
+      "what": "Create .env file (not in git)",
+      "how": "Create .env in /var/www/platform/code/ with: DB_HOST, DB_USER, API_KEYS, etc. — Ensure .env is in .gitignore"
+    },
+    {
+      "id": "HS-12",
+      "title": "Test manual pull",
+      "why": "Verify git pull works",
+      "what": "Manually pull latest code",
+      "how": "cd /var/www/platform/code && git pull origin staging — Should download latest code without errors"
+    },
+    {
+      "id": "HS-13",
+      "title": "Test webhook/cron",
+      "why": "Verify auto-pull mechanism works",
+      "what": "Trigger pull and check logs",
+      "how": "Push dummy commit to repo → Check logs/git-pull.log for pull activity within 5 minutes"
+    },
+    {
+      "id": "HS-14",
+      "title": "Document hosting config",
+      "why": "Reference for troubleshooting and team",
+      "what": "Record server details, credentials locations, cron jobs",
+      "how": "Create hosting-config.md with: server IP, SSH access, git remote, cron schedule, log locations"
+    }
+  ]
+}

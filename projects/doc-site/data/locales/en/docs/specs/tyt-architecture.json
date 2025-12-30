@@ -1,0 +1,16 @@
+{
+  "id": "specs.tyt-architecture",
+  "version": "v2.0.0",
+  "category": "specs",
+  "title": "TYT Platform Architecture",
+  "tags": ["spec","architecture","loader","entity"],
+  "content": "High-level architecture of TYT Platform v2 (loader, entity libs, projects).",
+  "links": [],
+  "items": [
+    {"id":"S-3001","title":"Loader (tyt.js)","why":"Single entry","what":"define/require/exec/router/main/log","how":"Projects set srcConfig; loader sets directories and runs lib/index"},
+    {"id":"S-3002","title":"Shared libs (entity/)","why":"Reuse across projects","what":"common/, ui/, render/, physics/, etc.","how":"Generic naming, ES5, no project coupling"},
+    {"id":"S-3003","title":"Projects/ www/", "why":"Isolation per app", "what":"Each project has www with define.js, index.html/css, src/", "how":"Config via tyt.srcConfig; assets local"},
+    {"id":"S-3004","title":"Data-driven docs","why":"Configurable content","what":"JSON docs under projects/doc-site/data/docs","how":"Loaded via dataLoader, rendered via render helpers"},
+    {"id":"S-3005","title":"Automation","why":"Consistency","what":"Makefile + scripts for serve/history/validate/scaffold","how":"Use history_log.sh and future validate/new-doc"}
+  ]
+}

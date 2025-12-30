@@ -1,0 +1,93 @@
+{
+  "id": "testing",
+  "version": "1.0.0",
+  "category": "guides",
+  "title": "Testing with TYT Framework",
+  "description": "Complete guide to writing and running tests using TYT's zero-dependency testing framework",
+  "items": [
+    {
+      "id": "TEST-01",
+      "title": "Framework Overview",
+      "why": "TYT provides a zero-dependency, ES5-compatible testing framework that works in both browser and Node.js environments",
+      "what": "The framework consists of three core modules: assertions (assert/expect API), testRunner (describe/it/hooks), and reporter (console/html/json output formats)",
+      "how": "Tests are organized into suites with describe(), individual tests with it() or test(), and setup/teardown with hooks (beforeEach, afterEach, beforeAll, afterAll). Example:\n\ntyt.describe('My Suite', function(){\n  tyt.it('should work', function(){\n    tyt.assert.equal(1 + 1, 2);\n  });\n});"
+    },
+    {
+      "id": "TEST-02",
+      "title": "Writing Unit Tests",
+      "why": "Unit tests verify individual functions and modules in isolation to catch bugs early and enable safe refactoring",
+      "what": "Create .test.js files in tests/unit/ directory testing a single module's functionality with multiple test cases covering normal and edge cases",
+      "how": "1. Create tests/unit/myModule.test.js\n2. Use tyt.describe() to group related tests\n3. Write individual tests with tyt.it()\n4. Use assertions: tyt.assert.equal(), tyt.expect().toBe()\n5. Test edge cases: null, undefined, empty arrays, etc.\n\nExample: tests/unit/render.test.js tests the render module's escapeHtml, heading, paragraph, and list functions"
+    },
+    {
+      "id": "TEST-03",
+      "title": "Writing Integration Tests",
+      "why": "Integration tests verify that multiple modules work together correctly and data flows properly between components",
+      "what": "Create .test.js files in tests/integration/ testing how modules interact, data loading, API calls, and navigation flows",
+      "how": "1. Create tests/integration/feature.test.js\n2. Test multi-module workflows\n3. Use async tests with done() callback for AJAX/fetch\n4. Verify data transformations across boundaries\n\nExample:\ntyt.it('should load and render doc', function(done){\n  loader.fetchJson('data.json', function(err, data){\n    tyt.assert.ok(!err);\n    var html = render.docItems(data.items);\n    tyt.assert.ok(html.indexOf('Title') !== -1);\n    done();\n  });\n});"
+    },
+    {
+      "id": "TEST-04",
+      "title": "Assertion API",
+      "why": "Assertions validate expected behavior and provide clear error messages when tests fail",
+      "what": "Two APIs available: assert (traditional) and expect (BDD-style). Both support equality checks, type checks, array/object operations, and error handling",
+      "how": "Assert API:\n- tyt.assert.ok(value) - truthy check\n- tyt.assert.equal(actual, expected) - loose equality\n- tyt.assert.strictEqual(actual, expected) - strict equality\n- tyt.assert.deepEqual(obj1, obj2) - recursive comparison\n- tyt.assert.isString/isNumber/isArray/isFunction(value)\n- tyt.assert.contains(array, value)\n- tyt.assert.hasProperty(obj, 'prop')\n\nExpect API:\n- tyt.expect(value).toBe(expected)\n- tyt.expect(value).toEqual(expected)\n- tyt.expect(value).toBeTruthy/toBeFalsy()\n- tyt.expect(array).toContain(item)\n- tyt.expect(fn).toThrow()"
+    },
+    {
+      "id": "TEST-05",
+      "title": "Test Hooks",
+      "why": "Hooks reduce duplication by sharing setup and teardown code across multiple tests",
+      "what": "Four hook types: beforeEach (runs before each test), afterEach (runs after each test), beforeAll (runs once before suite), afterAll (runs once after suite)",
+      "how": "tyt.describe('My Tests', function(){\n  var data;\n  \n  tyt.beforeAll(function(){\n    // Setup once for all tests\n    data = loadTestData();\n  });\n  \n  tyt.beforeEach(function(){\n    // Reset state before each test\n    data.reset();\n  });\n  \n  tyt.it('test 1', function(){\n    // Use data\n  });\n  \n  tyt.afterEach(function(){\n    // Cleanup after each test\n  });\n});"
+    },
+    {
+      "id": "TEST-06",
+      "title": "Async Testing",
+      "why": "Many operations (AJAX, file I/O, timers) are asynchronous and require special handling in tests",
+      "what": "Tests can be async by accepting a done callback parameter. Call done() when test completes, or done(error) to fail the test. Tests timeout after 5 seconds if done() not called",
+      "how": "tyt.it('async test', function(done){\n  loader.fetchJson('data.json', function(err, data){\n    if (err) return done(err);\n    \n    tyt.assert.ok(data);\n    tyt.assert.hasProperty(data, 'id');\n    done(); // Signal test complete\n  });\n});\n\n// Timeout will fail test:\ntyt.it('slow test', function(done){\n  // If this takes > 5s, test fails\n  slowOperation(done);\n});"
+    },
+    {
+      "id": "TEST-07",
+      "title": "Running Tests in Browser",
+      "why": "Browser tests verify that code works in the actual runtime environment with real DOM APIs",
+      "what": "Create an HTML test runner that loads test files and displays results with visual feedback",
+      "how": "1. Create tests/index.html\n2. Load tyt.js, test framework modules, and your code\n3. Load test files with <script> tags\n4. Call tyt.runTests({ reporter: 'html' })\n5. Open tests/index.html in browser\n\nExample structure:\n<script src=\"../tyt.js\"></script>\n<script src=\"../entity/test/assertions.js\"></script>\n<script src=\"../entity/test/testRunner.js\"></script>\n<script src=\"../entity/test/reporter.js\"></script>\n<script src=\"unit/myModule.test.js\"></script>\n<script>\n  tyt.runTests({ reporter: 'html' });\n</script>"
+    },
+    {
+      "id": "TEST-08",
+      "title": "Running Tests in Node.js",
+      "why": "Node.js tests enable automated testing in CI/CD pipelines and faster execution without browser overhead",
+      "what": "Use scripts/run_tests.js to execute tests in Node.js environment with command-line interface",
+      "how": "Run tests:\n$ node scripts/run_tests.js\n\nOptions:\n$ node scripts/run_tests.js --dir projects/doc-site/tests --filter \"Navigation\" --reporter json\n\n--dir <path>: Test directory to scan\n--filter <pattern>: Run only matching suites\n--reporter <type>: Output format (console, json)\n\nExit codes:\n- 0: All tests passed\n- 1: One or more tests failed"
+    },
+    {
+      "id": "TEST-09",
+      "title": "Makefile Integration",
+      "why": "Makefile commands provide consistent interface for running tests and integrate with existing automation",
+      "what": "Standard test targets: test (all tests), test-unit (unit only), test-integration (integration only), test-watch (watch mode)",
+      "how": "Run all tests:\n$ make test\n\nRun unit tests only:\n$ make test-unit\n\nRun integration tests:\n$ make test-integration\n\nWatch mode (re-run on file changes):\n$ make test-watch\n\nAll test commands log to HISTORY.md for tracking test execution and results over time"
+    },
+    {
+      "id": "TEST-10",
+      "title": "Test Organization",
+      "why": "Consistent test structure makes tests easy to find, understand, and maintain",
+      "what": "Standard directory structure: tests/unit/ for isolated module tests, tests/integration/ for multi-module tests, tests/e2e/ for full user workflows",
+      "how": "tests/\n  index.html          # Browser test runner\n  unit/               # Isolated module tests\n    render.test.js\n    dataLoader.test.js\n  integration/        # Multi-module tests\n    navigation.test.js\n    workflow.test.js\n  e2e/                # End-to-end tests\n    userJourney.test.js\n\nNaming: <module>.test.js for unit, <feature>.test.js for integration/e2e"
+    },
+    {
+      "id": "TEST-11",
+      "title": "Coverage and Quality",
+      "why": "Test coverage metrics identify untested code and guide testing efforts to critical areas",
+      "what": "Aim for 80%+ coverage of core logic. Focus on: public APIs, error handling, edge cases, user-facing features. Skip: trivial getters/setters, third-party code, generated code",
+      "how": "Coverage priorities:\n1. Public module APIs (100%)\n2. Error handling paths (100%)\n3. Business logic (80%+)\n4. UI components (70%+)\n5. Utilities (60%+)\n\nWrite tests for:\n- Happy path (normal usage)\n- Error cases (invalid input, network errors)\n- Edge cases (null, empty, boundary values)\n- Regression tests (bugs that were fixed)"
+    },
+    {
+      "id": "TEST-12",
+      "title": "CI/CD Integration",
+      "why": "Automated testing in CI/CD catches bugs before they reach production and enables confident deployments",
+      "what": "Run tests automatically on every commit/PR, block merges if tests fail, generate test reports for review",
+      "how": "GitHub Actions workflow:\n\nname: Tests\non: [push, pull_request]\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: actions/setup-node@v2\n      - run: make test\n      - run: node scripts/run_tests.js --reporter json > test-results.json\n      - uses: actions/upload-artifact@v2\n        with:\n          name: test-results\n          path: test-results.json\n\nPre-commit hook:\n#!/bin/sh\nmake test || exit 1"
+    }
+  ]
+}

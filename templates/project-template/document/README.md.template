@@ -1,0 +1,28 @@
+# {{NAME}} Documentation
+
+Project-specific documentation for {{NAME}}.
+
+## Overview
+
+[Add project description]
+
+## Setup
+
+1. Navigate to project: `cd projects/{{NAME}}/www/`
+2. Serve: `make serve` (from root)
+3. Open: http://localhost:8080/projects/{{NAME}}/www/
+
+## Structure
+
+- `www/` - Web root (HTML, CSS, JS, define.js)
+- `data/` - Data files and schemas
+- `deploy/` - Deployment configurations
+- `document/` - Project documentation
+
+## Development
+
+[Add development notes]
+
+## Deployment
+
+[Add deployment instructions]

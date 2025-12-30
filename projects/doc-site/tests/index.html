@@ -1,0 +1,68 @@
+// projects/doc-site/tests/index.html
+// Test runner UI
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Doc-Site Tests</title>
+  <style>
+    body { font: 14px/1.5 sans-serif; margin: 20px; background: #0b0c10; color: #e5e7eb; }
+    h1 { margin: 0 0 20px 0; }
+    .test-results { margin-top: 20px; }
+    .test-summary { background: #111827; padding: 16px; border-radius: 8px; margin-bottom: 20px; }
+    .stats { display: flex; gap: 16px; margin-top: 12px; }
+    .stat { padding: 4px 12px; border-radius: 4px; font-weight: 600; }
+    .stat.passed { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+    .stat.failed { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+    .stat.skipped { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+    .test-suite { background: #111827; padding: 16px; border-radius: 8px; margin-bottom: 12px; }
+    .test-suite h3 { margin: 0 0 12px 0; }
+    .test-list { list-style: none; padding: 0; margin: 0; }
+    .test-case { padding: 8px; display: flex; align-items: center; gap: 8px; }
+    .test-case.test-passed { color: #22c55e; }
+    .test-case.test-failed { color: #ef4444; }
+    .test-case.test-skipped { color: #f59e0b; }
+    .symbol { font-weight: bold; width: 20px; }
+    .name { flex: 1; }
+    .duration { color: #9ca3af; font-size: 12px; }
+    .error-message { margin-left: 28px; padding: 8px; background: rgba(239, 68, 68, 0.1); border-left: 2px solid #ef4444; font-family: monospace; font-size: 12px; }
+    button { background: #111827; color: #e5e7eb; border: 1px solid #1f2937; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+    button:hover { border-color: #22c55e; }
+  </style>
+</head>
+<body>
+  <h1>Doc-Site Tests</h1>
+  <button onclick="runAllTests()">Run Tests</button>
+  <div id="results"></div>
+
+  <script src="../../../tyt.js"></script>
+  <script src="../../../entity/common/log.js"></script>
+  <script src="../../../entity/common/dataLoader.js"></script>
+  <script src="../../../entity/common/render.js"></script>
+  <script src="../../../entity/test/assertions.js"></script>
+  <script src="../../../entity/test/testRunner.js"></script>
+  <script src="../../../entity/test/reporter.js"></script>
+  
+  <script src="unit/render.test.js"></script>
+  <script src="unit/dataLoader.test.js"></script>
+  <script src="integration/navigation.test.js"></script>
+  
+  <script>
+    function runAllTests() {
+      var results = document.getElementById('results');
+      results.innerHTML = '<p>Running tests...</p>';
+      
+      setTimeout(function(){
+        var stats = tyt.runTests({ reporter: 'html' });
+        var html = tyt.test.reporters.html(tyt.test.getSuites(), tyt.test.getStats());
+        results.innerHTML = html;
+      }, 100);
+    }
+    
+    // Auto-run on load
+    window.addEventListener('load', runAllTests);
+  </script>
+</body>
+</html>

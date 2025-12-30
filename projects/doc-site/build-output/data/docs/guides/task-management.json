@@ -1,0 +1,95 @@
+{
+  "id": "guides.task-management",
+  "version": "v2.1.0",
+  "category": "guides",
+  "title": "Task Management Guide",
+  "tags": ["tasks","kanban","automation","workflow"],
+  "content": "Complete guide to managing tasks in TYT Platform v2 using JSON-driven Kanban workflow with CLI and UI integration.",
+  "links": [],
+  "items": [
+    {
+      "id": "TM-01",
+      "title": "Task Management Overview",
+      "why": "Organize and track platform development work",
+      "what": "JSON-based Kanban system (TODO → IN_PROGRESS → DONE → REOPEN)",
+      "how": "Use CLI commands or web UI to create, view, and manage tasks"
+    },
+    {
+      "id": "TM-02",
+      "title": "Create New Task",
+      "why": "Track new work items systematically",
+      "what": "Generate task JSON with schema validation",
+      "how": "make task-new id=003-feature-name title='Feature description' priority=High assignee='Name'"
+    },
+    {
+      "id": "TM-03",
+      "title": "List Tasks",
+      "why": "View current work status across all categories",
+      "what": "Filter tasks by status (TODO, IN_PROGRESS, DONE, REOPEN)",
+      "how": "make task-list [status=TODO] - omit status to see all tasks"
+    },
+    {
+      "id": "TM-04",
+      "title": "View Task Details",
+      "why": "See full task information including subtasks and criteria",
+      "what": "Display task metadata, acceptance criteria, subtasks, tags, files",
+      "how": "make task-show id=001-task-name - or click task card in web UI"
+    },
+    {
+      "id": "TM-05",
+      "title": "Move Task Between Statuses",
+      "why": "Update task progress through workflow",
+      "what": "Change task status with automatic history logging",
+      "how": "make task-move id=001-task-name to=IN_PROGRESS"
+    },
+    {
+      "id": "TM-06",
+      "title": "Complete Task",
+      "why": "Mark work as finished",
+      "what": "Move task to DONE status",
+      "how": "make task-done id=001-task-name - automatically logs completion"
+    },
+    {
+      "id": "TM-07",
+      "title": "Reopen Task",
+      "why": "Handle incomplete or needs-rework tasks",
+      "what": "Move DONE task to REOPEN status",
+      "how": "make task-reopen id=001-task-name"
+    },
+    {
+      "id": "TM-08",
+      "title": "Task Schema Structure",
+      "why": "Understand task data model for editing",
+      "what": "Required: id, title, status, created; Optional: priority, assignee, description, acceptanceCriteria, subtasks, tags, relatedFiles, notes",
+      "how": "See tasks/schema.json for full specification; edit task JSON files directly in tasks/data/{status}/"
+    },
+    {
+      "id": "TM-09",
+      "title": "Web UI Task Management",
+      "why": "Visual task tracking and interaction",
+      "what": "View tasks in doc-site with filtering, sorting, detail view",
+      "how": "Navigate to Tasks section in sidebar → filter by status → click card for details"
+    },
+    {
+      "id": "TM-10",
+      "title": "Task Validation",
+      "why": "Ensure JSON integrity and schema compliance",
+      "what": "Validate all task files against schema",
+      "how": "make task-validate - checks all tasks in all statuses"
+    },
+    {
+      "id": "TM-11",
+      "title": "Acceptance Criteria & Subtasks",
+      "why": "Break down tasks into measurable outcomes",
+      "what": "Define completion criteria and trackable sub-items",
+      "how": "Edit task JSON: add to acceptanceCriteria[] or subtasks[] arrays with {id, text, completed}"
+    },
+    {
+      "id": "TM-12",
+      "title": "Task Best Practices",
+      "why": "Maintain clean and useful task system",
+      "what": "Use descriptive IDs (001-feature-name), add acceptance criteria, link related files, tag appropriately",
+      "how": "Follow pattern: clear title → detailed description → acceptance criteria → subtasks → tags → related files"
+    }
+  ]
+}

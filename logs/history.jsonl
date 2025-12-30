@@ -1,0 +1,97 @@
+{"ts":"2025-12-21T16:08:06Z","action":"init:phase1","message":"Phase 1 skeleton + Makefile automation created (tyt.js, entity/index.js, doc-site skeleton).","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T16:14:00Z","action":"doc:site","message":"Doc-site skeleton created (index.html, index.css, define.js) under projects/doc-site/www.","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T16:14:00Z","action":"platform:core","message":"Core loader added (tyt.js) and minimal entity/index.js.","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T16:14:00Z","action":"automation:makefile","message":"Root Makefile added (serve/stop/status/open-doc).","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T16:14:00Z","action":"automation:history","message":"History logger script added and integrated into Makefile targets.","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T16:14:37Z","action":"rules:init","message":"Seeded core rules JSON (schema.json, rules/core-rules.json) for doc-site.","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T16:20:15Z","action":"serve:stop","message":"attempted; killed any listeners on 8080","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T16:20:16Z","action":"serve:start","message":"PHP server on port 8080, dir=./","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T16:20:21Z","action":"render:rules","message":"Added data loader (entity/common/dataLoader.js) and rules rendering in entity/index.js.","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T16:25:04Z","action":"serve:stop","message":"attempted; killed any listeners on 8080","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T16:25:04Z","action":"serve:start","message":"PHP server on port 8080, dir=./","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T16:25:07Z","action":"common:helpers","message":"Added common log.js and render.js; nav now loads docs via dataLoader; guides/ai-collaboration.json added.","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T16:29:33Z","action":"docs:validate","message":"validated doc JSON files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T16:29:37Z","action":"docs:update","message":"Added guides/create-entity.json, specs/tyt-architecture.json, render/validate enhancements, validate/new-doc targets.","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T16:32:01Z","action":"docs:validate","message":"validated doc JSON files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T16:32:08Z","action":"docs:more","message":"Added getting-started, ai-workflow, create-project-template guides; mapped nav; improved styling; validate pass.","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T16:36:40Z","action":"serve:start","message":"PHP server on port 8080, dir=./","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T16:38:12Z","action":"serve:start","message":"PHP server on port 8080, dir=./","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T16:48:49Z","action":"automation:templates","message":"Created entity-template and project-template with full scaffolding","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T16:48:49Z","action":"automation:scripts","message":"Added new_entity.sh, new_project.sh, doc_version.sh scripts","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T16:48:49Z","action":"automation:makefile","message":"Added new-entity, new-project, version targets to Makefile","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T16:48:49Z","action":"version:init","message":"Created HISTORY.md for v2.0.0 release tracking","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T16:51:14Z","action":"docs:validate","message":"validated doc JSON files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T16:51:18Z","action":"docs:automation","message":"Added Platform Automation guide with all make commands and workflow best practices","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T16:55:37Z","action":"plan:update","message":"Updated plan to v2.0.0 COMPLETED status, removed backup-platform references, added future roadmap","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T17:02:03Z","action":"task:new","message":"002-testing-automation - Implement Testing Automation","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T17:02:10Z","action":"feature:task-management","message":"Completed task management system with CLI automation and Makefile integration","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T17:07:35Z","action":"docs:validate","message":"validated doc JSON files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T17:07:39Z","action":"task:move","message":"001-task-management-system → DONE","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T17:08:10Z","action":"feature:task-ui","message":"Completed task UI integration in doc-site with task list/detail views and task management guide","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T17:15:05Z","action":"docs:validate","message":"validated doc JSON files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T17:16:07Z","action":"task:move","message":"002-testing-automation → DONE","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T17:16:50Z","action":"test:unit","message":"ran unit tests","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T17:16:58Z","action":"feature:testing","message":"Completed testing automation with framework core, example tests, CLI runner, Makefile targets, and comprehensive guide documentation","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T17:18:12Z","action":"test:unit","message":"ran unit tests","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-21T17:18:12Z","action":"docs:validate","message":"validated doc JSON files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T05:03:13Z","action":"serve:status","message":"queried status on port 8080","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T05:03:25Z","action":"serve:start","message":"PHP server on port 8080, dir=./","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T05:07:11Z","action":"test:all","message":"ran all tests","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T05:19:12Z","action":"setup","message":"Created platform-rules.md with comprehensive guidelines for task management, git workflow, documentation, and code quality","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T05:19:16Z","action":"fix","message":"Removed duplicate task 002-testing-automation from TODO folder (Rule 20251222001: Task ID must be unique)","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T05:56:40Z","action":"task-created","message":"Created task 003-deployment-workflow with deployment infrastructure plan: build script, git tagging, database backup, 4 new rules, documentation","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T06:00:50Z","action":"start-task","message":"Started task 003-deployment-workflow on branch dev-003-deployment-workflow","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T06:01:51Z","action":"implementation","message":"Phase 1 Complete: Created deployment scripts (build_project.sh, push_to_git.sh, backup_database.sh, manifest template)","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T06:04:38Z","action":"implementation","message":"Phase 2 & 3 Complete: Added 4 deployment rules (20251222007-010) + updated Makefile with build/push/backup targets","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T06:06:54Z","action":"implementation","message":"Phase 4 Complete: Created 4 documentation files in doc-site (build-and-deploy, rollback-procedure, hosting-setup, release-manifest-schema)","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T06:07:21Z","action":"test:all","message":"ran all tests","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T06:08:10Z","action":"release","message":"v2.0.0 released: Deployment workflow infrastructure complete with scripts, rules, documentation, and testing (commit: 626e085)","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T06:10:22Z","action":"task-complete","message":"Task 003-deployment-workflow DONE: Deployment infrastructure complete with 3 scripts, 4 rules, 4 docs, tested with doc-site v2.0.0","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T06:13:56Z","action":"pending","message":"Deployment infrastructure complete. Ready for real deployment tonight. All code committed to branch dev-003-deployment-workflow, tag v2.0.0 created","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T15:40:17Z","action":"test:all","message":"ran all tests","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T15:40:22Z","action":"docs:validate","message":"validated doc JSON files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T15:43:08Z","action":"release","message":"v2.0.0 released: Deployment workflow implementation with build, push, backup, and rollback","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T15:44:05Z","action":"serve:start","message":"PHP server on port 8080, dir=./","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T15:48:26Z","action":"docs:validate","message":"validated doc JSON files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T15:49:36Z","action":"docs:validate","message":"validated doc JSON files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T15:54:51Z","action":"docs:validate","message":"validated doc JSON files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T15:57:31Z","action":"serve:start","message":"PHP server on port 8080, dir=./","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T16:15:46Z","action":"serve:start","message":"PHP server on port 8080, dir=./","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T16:23:10Z","action":"docs:validate","message":"validated doc JSON files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T16:23:15Z","action":"serve:stop","message":"attempted; killed any listeners on 8080","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T16:23:15Z","action":"serve:start","message":"PHP server on port 8080, dir=./","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T16:25:40Z","action":"serve:start","message":"PHP server on port 8080, dir=./","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T16:34:50Z","action":"docs:validate","message":"validated doc JSON files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T16:57:53Z","action":"serve:start","message":"PHP server on port 8080, dir=./","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T17:07:09Z","action":"sync:doc-site","message":"synced doc-site data to build-output","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T17:07:09Z","action":"serve:start","message":"PHP server on port 8080, dir=./","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T17:11:53Z","action":"tasks:update-index","message":"updated task index files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-22T17:11:53Z","action":"sync:doc-site","message":"synced doc-site data to build-output","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T05:03:04Z","action":"tasks:update-index","message":"updated task index files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T05:03:04Z","action":"sync:doc-site","message":"synced doc-site data to build-output","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T05:03:04Z","action":"serve:start","message":"PHP server on port 8080, dir=./","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T05:24:15Z","action":"docs:validate","message":"validated doc JSON files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T05:57:03Z","action":"docs:validate","message":"validated doc JSON files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T06:07:00Z","action":"docs:validate","message":"validated doc JSON files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T06:07:12Z","action":"docs:validate","message":"validated doc JSON files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T06:07:50Z","action":"event","message":"Added i18n language selector for doc-site (en/vi/zh-TW). Fixed ES6 violations and script nesting bug in index.html.","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T06:08:30Z","action":"i18n:feature","message":"Added i18n language selector for doc-site (en/vi/zh-TW). Fixed ES6 violations and script nesting bug in index.html.","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T06:11:08Z","action":"docs:validate","message":"validated doc JSON files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T06:11:36Z","action":"tasks:update-index","message":"updated task index files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T06:11:36Z","action":"sync:doc-site","message":"synced doc-site data to build-output","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T06:11:37Z","action":"serve:start","message":"PHP server on port 8080, dir=./","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T06:15:25Z","action":"docs:validate","message":"validated doc JSON files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T06:17:11Z","action":"docs:validate","message":"validated doc JSON files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T06:19:11Z","action":"docs:validate","message":"validated doc JSON files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T06:20:29Z","action":"docs:validate","message":"validated doc JSON files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T06:21:11Z","action":"tasks:update-index","message":"updated task index files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T06:21:12Z","action":"sync:doc-site","message":"synced doc-site data to build-output","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T06:21:12Z","action":"serve:start","message":"PHP server on port 8080, dir=./","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T06:22:09Z","action":"docs:validate","message":"validated doc JSON files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T06:25:11Z","action":"docs:validate","message":"validated doc JSON files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T06:28:39Z","action":"tasks:update-index","message":"updated task index files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T06:28:39Z","action":"sync:doc-site","message":"synced doc-site data to build-output","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-24T06:28:40Z","action":"serve:start","message":"PHP server on port 8080, dir=./","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-25T15:47:41Z","action":"tasks:update-index","message":"updated task index files","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-25T15:47:42Z","action":"sync:doc-site","message":"synced doc-site data to build-output","user":"norman","host":"aikungame87.local"}
+{"ts":"2025-12-25T15:47:42Z","action":"serve:start","message":"PHP server on port 8080, dir=./","user":"norman","host":"aikungame87.local"}

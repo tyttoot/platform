@@ -1,0 +1,16 @@
+{
+  "id": "guides.ai-workflow",
+  "version": "v2.0.0",
+  "category": "guides",
+  "title": "AI Workflow (Detailed)",
+  "tags": ["ai","workflow","collaboration"],
+  "content": "Detailed workflow for collaborating with AI on TYT Platform tasks.",
+  "links": [],
+  "items": [
+    {"id":"AI-01","title":"State intent and scope","why":"Reduce ambiguity","what":"Describe goal, files to touch, constraints","how":"Provide a short brief + acceptance criteria"},
+    {"id":"AI-02","title":"Work in slices","why":"Safe increments","what":"Ask for small steps and test after each","how":"Prefer small patches; run make validate or app-specific checks"},
+    {"id":"AI-03","title":"Use automation","why":"Consistency","what":"Use make serve/validate/new-doc/history-add","how":"Let AI hook into scripted flows"},
+    {"id":"AI-04","title":"Keep entity generic","why":"Reusability","what":"No project-specific names in entity/","how":"Review names vs. rules before merging"},
+    {"id":"AI-05","title":"Log decisions","why":"Traceability","what":"Record key changes in history","how":"make history-add action=... msg=..."}
+  ]
+}

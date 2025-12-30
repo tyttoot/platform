@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TYT Doc Site</title>
+  <style>
+    :root { --bg:#0b0c10; --fg:#e5e7eb; --muted:#9ca3af; --accent:#22c55e; --border:#1f2937; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: var(--bg); color: var(--fg); font: 14px/1.5 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+    .app { display: grid; grid-template-rows: 48px 1fr; height: 100%; }
+    header { display:flex; align-items:center; gap:12px; padding:0 16px; border-bottom:1px solid var(--border); justify-content: space-between; }
+    .brand { font-weight: 700; letter-spacing: .4px; }
+    .tag { font-size: 12px; color: var(--muted); border:1px solid var(--border); padding:2px 6px; border-radius:6px; }
+    .header-search { display:flex; align-items:center; gap:8px; }
+    .header-search input { background:#111827; color:var(--fg); border:1px solid var(--border); padding:6px 10px; border-radius:6px; width:200px; font-size:13px; }
+    .header-search input:focus { outline:1px solid var(--accent); border-color:var(--accent); }
+    
+    /* Layout */
+    .layout { display:grid; grid-template-columns: 260px 1fr; height: 100%; }
+    .sidebar-wrapper { position: relative; width: 260px; height: 100%; }
+    nav { border-right:1px solid var(--border); padding:12px; overflow-y:auto; height: calc(100% - 40px); padding-top: 0; background:var(--bg); }
+    nav ul { padding-left: 16px; margin: 8px 0; }
+    nav li { margin: 6px 0; }
+    nav a { color: var(--fg); text-decoration: none; }
+    nav a:hover { color: var(--accent); }
+    nav .section { margin-top:12px; font-size:12px; letter-spacing:.4px; color: var(--muted); text-transform: uppercase; }
+    
+    .content { padding:20px; overflow:auto; line-height: 1.6; }
+    .content h1 { margin-top: 0; margin-bottom: 8px; }
+    .content ol { padding-left: 20px; }
+    .content li { margin-bottom: 10px; }
+    .content em { color: var(--muted); font-style: normal; }
+    .muted { color: var(--muted); }
+    .toolbar { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    .search { display:flex; flex-direction:column; gap:6px; min-width:220px; }
+    .search input { background:#111827; color:var(--fg); border:1px solid var(--border); padding:8px 10px; border-radius:6px; }
+    .search input:focus { outline:1px solid var(--accent); border-color:var(--accent); }
+    button { background:#111827; color:var(--fg); border:1px solid var(--border); padding:6px 10px; border-radius:6px; cursor:pointer; }
+    button:hover { border-color:#374151; }
+    .hidden { display:none; }
+    
+    /* Menu Toggle Button */
+    .menu-toggle {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0;
+      z-index: 100;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      cursor: pointer;
+    }
+    .menu-toggle .icon-close { display: none; }
+    .menu-toggle .icon-menu { display: block; }
+    
+    /* Collapsed sidebar */
+    .layout.sidebar-collapsed { grid-template-columns: 40px 1fr; }
+    .layout.sidebar-collapsed .sidebar-wrapper { width: 40px; }
+    .layout.sidebar-collapsed nav { transform: translateX(-260px); margin-left: -260px; }
+    .layout.sidebar-collapsed .menu-toggle { right: 0; }
+    .layout.sidebar-collapsed .menu-toggle .icon-close { display: block; }
+    .layout.sidebar-collapsed .menu-toggle .icon-menu { display: none; }
+  </style>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="brand">TYT Doc Site</div>
+      <div class="header-search">
+        <input type="search" id="global-search" placeholder="Search all docs..." />
+        <select id="lang-select" aria-label="Select language" title="Select language" style="background:#111827;color:var(--fg);border:1px solid var(--border);padding:6px 8px;border-radius:6px;font-size:13px;">
+          <option value="en">English</option>
+          <option value="vi">Tiếng Việt</option>
+          <option value="zh-TW">中文（台灣）</option>
+        </select>
+      </div>
+    </header>
+    <div class="layout">
+      <div class="sidebar-wrapper">
+        <button class="menu-toggle" aria-expanded="true" aria-controls="sidebar" title="Toggle Menu">
+          <svg class="icon-menu" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 12h18M3 6h18M3 18h18"/>
+          </svg>
+          <svg class="icon-close" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+        <nav id="sidebar" aria-label="Sidebar">
+          <!-- Navigation is auto-generated from docs-manifest.json -->
+          <div class="section">Loading...</div>
+        </nav>
+      </div>
+      <main class="content" role="main" tabindex="-1">
+        <div class="toolbar">
+          <div>
+            <h1 data-i18n-key="title">TYT Doc Site</h1>
+          </div>
+          <div class="search">
+            <label for="doc-search" class="muted" data-i18n-key="searchLabel">Search items</label>
+            <input type="search" id="doc-search" placeholder="Filter items..." />
+          </div>
+        </div>
+        <div id="doc-render">
+          <p class="muted" data-i18n-key="skeletonDescription">Minimal skeleton. No dependencies. Ready for tyttoot integration.</p>
+          <p data-i18n-key="navigationHint">Use the sidebar to navigate. Content rendering and data loading will be powered by the platform.</p>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../../../tyt.js"></script>
+  <script>
+    (function () {
+      function escapeHtml(str) {
+        if (!str) return '';
+        return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\"/g, '&quot;').replace(/'/g, '&#39;');
+      }
+      
+      var btn = document.querySelector('.menu-toggle');
+      var layout = document.querySelector('.layout');
+      if (btn && layout) {
+        btn.addEventListener('click', function () {
+          var collapsed = layout.classList.toggle('sidebar-collapsed');
+          btn.setAttribute('aria-expanded', String(!collapsed));
+        });
+      }
+      
+      var globalSearchInput = document.getElementById('global-search');
+      if (globalSearchInput) {
+        globalSearchInput.addEventListener('input', function(e) {
+          var query = e.target.value.trim();
+          var docRender = document.getElementById('doc-render');
+          if (!query || !docRender) {
+            if (docRender && !query) {
+              docRender.innerHTML = '<p class="muted">Minimal skeleton. No dependencies. Ready for tyttoot integration.</p><p>Use the sidebar to navigate. Content rendering and data loading will be powered by the platform.</p>';
+            }
+            return;
+          }
+          var needle = query.toLowerCase();
+          var navLinks = document.querySelectorAll('nav a');
+          var results = [];
+          navLinks.forEach(function(link) {
+            var text = link.textContent.toLowerCase();
+            if (text.indexOf(needle) !== -1) {
+              results.push({ 
+                title: link.textContent, 
+                href: link.getAttribute('href'),
+                dataPage: link.getAttribute('data-page'),
+                element: link
+              });
+            }
+          });
+          var html = '<h2>Search Results for &quot;' + escapeHtml(query) + '&quot;</h2>';
+          if (results.length === 0) {
+            html += '<p class="muted">No results found.</p>';
+          } else {
+            html += '<ul style="list-style: none; padding: 0;">';
+            results.forEach(function(r, idx) {
+              html += '<li style="margin-bottom: 8px;"><a href="#" data-search-idx="' + idx + '" style="color: var(--accent); text-decoration: none;">' + escapeHtml(r.title) + '</a></li>';
+            });
+            html += '</ul>';
+          }
+          docRender.innerHTML = html;
+          
+          // Add click handlers to search result links
+          var resultLinks = docRender.querySelectorAll('a[data-search-idx]');
+          resultLinks.forEach(function(resultLink, idx) {
+            resultLink.addEventListener('click', function(e) {
+              e.preventDefault();
+              if (results[idx]) {
+                var originalLink = results[idx].element;
+                if (originalLink) originalLink.click();
+              }
+            });
+          });
+        });
+      }
+
+      // Language selector population and handler (wait for i18n module)
+      (function(){
+        var tries = 0;
+        function setupLangSelect(){
+          tries++;
+          var sel = document.getElementById('lang-select');
+          if (!sel) return;
+          var i18n = (window.tyt && tyt.lib && tyt.lib.common && tyt.lib.common.i18n) ? tyt.lib.common.i18n : null;
+          if (!i18n) {
+            if (tries < 10) return setTimeout(setupLangSelect, 200);
+            return;
+          }
+          // populate options from availableLocales (replace existing)
+          var locales = i18n.availableLocales ? i18n.availableLocales() : null;
+          if (locales && locales.length) {
+            sel.innerHTML = '';
+            for (var i = 0; i < locales.length; i++) {
+              var o = document.createElement('option');
+              o.value = locales[i].id;
+              o.textContent = locales[i].name || locales[i].id;
+              sel.appendChild(o);
+            }
+          }
+          // set current selection
+          try { 
+            var stored = window.localStorage && window.localStorage.getItem('docsite.locale'); 
+            if (stored) sel.value = stored; 
+          } catch(e) {}
+          sel.addEventListener('change', function(e){
+            var val = e.target.value;
+            if (i18n && typeof i18n.setLocale === 'function') {
+              i18n.setLocale(val, { reloadCurrentDoc: true });
+            }
+          });
+        }
+        setupLangSelect();
+      })();
+    })();
+  </script>
+  <script>
+    (function() {
+      const langSelect = document.getElementById('lang-select');
+      langSelect.addEventListener('change', function() {
+        const selectedLocale = langSelect.value;
+        if (tyt && tyt.lib && tyt.lib.common && tyt.lib.common.i18n) {
+          tyt.lib.common.i18n.setLocale(selectedLocale, function(err, locale) {
+            if (!err) {
+              console.log('Locale changed to:', locale);
+              tyt.lib.common.i18n.applyLocale(locale); // Ensure page content updates
+            }
+          });
+        }
+      });
+
+      window.addEventListener('tyt:localeChanged', function(event) {
+        const locale = event.detail.locale;
+        console.log('Locale changed event received:', locale);
+        if (tyt && tyt.lib && tyt.lib.common && tyt.lib.common.i18n) {
+          tyt.lib.common.i18n.applyLocale(locale); // Ensure page content updates
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

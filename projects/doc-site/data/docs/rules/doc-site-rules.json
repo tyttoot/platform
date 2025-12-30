@@ -1,0 +1,86 @@
+{
+  "id": "rules.doc-site-rules",
+  "version": "v2.0.0",
+  "category": "rules",
+  "title": "Doc-Site Rules",
+  "tags": ["rules", "doc-site", "documentation", "guide"],
+  "content": "Quy tắc và hướng dẫn thêm document vào Doc-Site. Tuân thủ các quy tắc này để đảm bảo document hiển thị đúng.",
+  "links": [
+    { "label": "Full Rules (Markdown)", "href": "/projects/doc-site/doc-site-rules.md" },
+    { "label": "Manifest File", "href": "/projects/doc-site/data/docs-manifest.json" }
+  ],
+  "items": [
+    {
+      "title": "Tổng quan",
+      "content": "Doc-site hiển thị tài liệu platform. Navigation tự động generate từ docs-manifest.json. Chỉ cần 2 bước để thêm document mới."
+    },
+    {
+      "title": "Bước 1: Tạo JSON File",
+      "content": "Tạo file trong /projects/doc-site/data/docs/<category>/<filename>.json",
+      "items": [
+        { "title": "Categories", "content": "guides/ (hướng dẫn), specs/ (đặc tả), rules/ (quy tắc)" },
+        { "title": "ID format", "content": "\"<category>.<filename>\" - Ví dụ: \"guides.my-guide\"" },
+        { "title": "Required fields", "content": "id, version, category, title, tags, content, links, items" },
+        { "title": "⚠️ Quan trọng", "content": "Dùng 'items' array, KHÔNG dùng 'sections'" }
+      ]
+    },
+    {
+      "title": "Bước 2: Thêm vào Manifest",
+      "content": "Edit file /projects/doc-site/data/docs-manifest.json",
+      "items": [
+        { "title": "Format entry", "content": "{ \"file\": \"<category>/<filename>.json\", \"title\": \"Display Title\" }" },
+        { "title": "Thêm vào section", "content": "Tìm section phù hợp (Guides/Specs/Rules) và thêm entry vào items array" },
+        { "title": "Không cần edit", "content": "HTML và JavaScript - Navigation tự động generate!" }
+      ]
+    },
+    {
+      "title": "Validate và Test",
+      "content": "Luôn validate và test sau khi thêm document",
+      "items": [
+        { "title": "make validate", "content": "Kiểm tra JSON format - tất cả files phải hiển thị OK" },
+        { "title": "make serve", "content": "Start server và refresh browser" },
+        { "title": "Test click", "content": "Click document mới trong sidebar → phải render content" }
+      ]
+    },
+    {
+      "title": "Script hỗ trợ",
+      "content": "Sử dụng script để thêm nhanh",
+      "items": [
+        { "title": "Command", "content": "bash scripts/add_doc_to_site.sh <category> <filename> <title>" },
+        { "title": "Ví dụ", "content": "bash scripts/add_doc_to_site.sh guides my-guide \"My Guide\"" },
+        { "title": "Script tự động", "content": "Kiểm tra file, validate, thêm manifest, sync build-output" }
+      ]
+    },
+    {
+      "title": "Naming Convention",
+      "content": "PageKey tự động từ file path",
+      "items": [
+        { "title": "guides/my-guide.json", "content": "→ guidesMyGuide" },
+        { "title": "specs/api-reference.json", "content": "→ specsApiReference" },
+        { "title": "File naming", "content": "Dùng kebab-case: my-new-guide.json" }
+      ]
+    },
+    {
+      "title": "Troubleshooting",
+      "content": "Các lỗi thường gặp và cách fix",
+      "items": [
+        { "title": "Document không hiển thị", "content": "→ Chưa thêm vào manifest. Fix: Thêm entry vào docs-manifest.json" },
+        { "title": "\"No doc mapped\" error", "content": "→ File path sai. Fix: Kiểm tra 'file' field trong manifest" },
+        { "title": "Content blank", "content": "→ JSON format sai. Fix: Chạy make validate, sửa theo error" },
+        { "title": "Navigation không update", "content": "→ Browser cache. Fix: Hard refresh (Cmd+Shift+R)" }
+      ]
+    },
+    {
+      "title": "Checklist",
+      "content": "Kiểm tra trước khi commit",
+      "items": [
+        { "title": "✓", "content": "JSON file đúng format" },
+        { "title": "✓", "content": "ID format: <category>.<filename>" },
+        { "title": "✓", "content": "Dùng 'items' (không phải 'sections')" },
+        { "title": "✓", "content": "Đã thêm vào docs-manifest.json" },
+        { "title": "✓", "content": "make validate pass" },
+        { "title": "✓", "content": "Test browser thành công" }
+      ]
+    }
+  ]
+}
