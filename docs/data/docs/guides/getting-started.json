@@ -1,0 +1,16 @@
+{
+  "id": "guides.getting-started",
+  "version": "v2.0.0",
+  "category": "guides",
+  "title": "Getting Started",
+  "tags": ["start","setup","doc-site"],
+  "content": "Quick steps to run the doc-site and explore rules/guides/specs.",
+  "links": [],
+  "items": [
+    {"id":"GS-01","title":"Install dependencies","why":"Need PHP/Node","what":"PHP 8+, Node 16+","how":"Check with `php -v` and `node -v`"},
+    {"id":"GS-02","title":"Start server","why":"Serve the doc-site","what":"Run make serve","how":"make serve → opens http://localhost:8080/projects/doc-site/www/index.html"},
+    {"id":"GS-03","title":"Navigate docs","why":"Read rules/guides/specs","what":"Use sidebar links","how":"Click Rules/Guides/Specs to load JSON docs"},
+    {"id":"GS-04","title":"Add a doc","why":"Extend content","what":"Use make new-doc","how":"make new-doc category=guides slug=my-note; then edit JSON"},
+    {"id":"GS-05","title":"Validate docs","why":"Catch schema issues","what":"Run make validate","how":"Checks required fields (id/category/title) and items array"}
+  ]
+}

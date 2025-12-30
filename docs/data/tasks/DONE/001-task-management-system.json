@@ -1,0 +1,122 @@
+{
+  "id": "001-task-management-system",
+  "title": "Implement Task Management System",
+  "status": "DONE",
+  "priority": "High",
+  "created": "2024-12-21T10:00:00Z",
+  "updated": "2025-12-22T17:18:34.042Z",
+  "assignee": "Platform Team",
+  "description": "Create JSON-driven task management system with CLI automation and optional UI integration for TYT Platform v2.",
+  "acceptanceCriteria": [
+    {
+      "id": "AC-1",
+      "text": "Task schema defined and documented",
+      "completed": true
+    },
+    {
+      "id": "AC-2",
+      "text": "CLI commands for CRUD operations",
+      "completed": true
+    },
+    {
+      "id": "AC-3",
+      "text": "Task validation script",
+      "completed": true
+    },
+    {
+      "id": "AC-4",
+      "text": "Makefile automation targets",
+      "completed": true
+    },
+    {
+      "id": "AC-5",
+      "text": "Optional UI in doc-site",
+      "completed": true
+    }
+  ],
+  "subtasks": [
+    {
+      "id": "ST-1",
+      "text": "Create task schema.json",
+      "completed": true
+    },
+    {
+      "id": "ST-2",
+      "text": "Create task README",
+      "completed": true
+    },
+    {
+      "id": "ST-3",
+      "text": "Implement task entity modules",
+      "completed": true
+    },
+    {
+      "id": "ST-4",
+      "text": "Create CLI scripts",
+      "completed": true
+    },
+    {
+      "id": "ST-5",
+      "text": "Add Makefile targets",
+      "completed": true
+    },
+    {
+      "id": "ST-6",
+      "text": "Create validation script",
+      "completed": true
+    },
+    {
+      "id": "ST-7",
+      "text": "Add task UI to doc-site",
+      "completed": true
+    },
+    {
+      "id": "ST-8",
+      "text": "Document in guides",
+      "completed": true
+    }
+  ],
+  "tags": [
+    "automation",
+    "task-management",
+    "v2.1.0"
+  ],
+  "relatedFiles": [
+    "tasks/schema.json",
+    "tasks/README.md",
+    "scripts/task_manager.sh",
+    "scripts/update_task_index.sh",
+    "scripts/audit_done_tasks.sh",
+    "Makefile",
+    "entity/task/taskLoader.js",
+    "entity/task/taskRender.js",
+    "entity/index.js",
+    "projects/doc-site/www/index.css",
+    "projects/doc-site/data/docs/guides/task-management.json",
+    "projects/doc-site/data/docs-manifest.json"
+  ],
+  "notes": "First task using the new task management system - dogfooding approach.",
+  "history": [
+    {
+      "timestamp": "2024-12-21T10:00:00Z",
+      "action": "created",
+      "status": "TODO"
+    },
+    {
+      "timestamp": "2024-12-21T10:05:00Z",
+      "action": "moved",
+      "status": "IN_PROGRESS",
+      "note": "Started schema design"
+    },
+    {
+      "timestamp": "2025-12-21T17:07:39Z",
+      "action": "moved",
+      "status": "DONE"
+    },
+    {
+      "timestamp": "2025-12-22T17:18:34.042Z",
+      "action": "updated",
+      "note": "Marked all acceptance criteria and subtasks as completed after verification"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "guides.create-project-template",
+  "version": "v2.0.0",
+  "category": "guides",
+  "title": "Create Project Template",
+  "tags": ["project","template","guide"],
+  "content": "How to create a reusable project template using TYT Platform.",
+  "links": [],
+  "items": [
+    {"id":"PT-01","title":"Clone template structure","why":"Fast bootstrap","what":"projects/template/ with www/, define.js, index.html/css","how":"Copy folder, rename, adjust define.js"},
+    {"id":"PT-02","title":"Set srcConfig","why":"Loader needs paths","what":"projectName, mode, currentPage, logKeys","how":"Edit www/define.js"},
+    {"id":"PT-03","title":"Wire entity requires","why":"Load shared libs","what":"Add tyt.require calls in entity/index.js for needed libs","how":"Follow existing pattern"},
+    {"id":"PT-04","title":"Add sample page","why":"Sanity check","what":"Create www/src/<page>/index.js","how":"Render a hello state; use dataLoader/render as needed"},
+    {"id":"PT-05","title":"Document usage","why":"Onboarding","what":"Add a guide JSON entry for the template","how":"Use make new-doc to add docs/guides"}
+  ]
+}

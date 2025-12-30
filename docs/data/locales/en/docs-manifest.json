@@ -1,0 +1,57 @@
+{
+  "version": "v2.0.0",
+  "lastUpdated": "2025-12-22",
+  "description": "Single source of truth for doc-site navigation. Add docs here - navigation auto-generates.",
+  "title": "TYT Documentation Site",
+  "searchLabel": "Search items",
+  "skeletonDescription": "Minimal skeleton. No dependencies. Ready for tyttoot integration.",
+  "navigationHint": "Use the sidebar to navigate. Content rendering and data loading will be powered by the platform.",
+  "navigation": [
+    {
+      "section": "Start",
+      "items": [
+        { "file": "guides/getting-started.json", "title": "Getting Started" }
+      ]
+    },
+    {
+      "section": "Rules",
+      "items": [
+        { "file": "rules/core-rules.json", "title": "Core Rules" },
+        { "file": "rules/doc-site-rules.json", "title": "Doc-Site Rules" }
+      ]
+    },
+    {
+      "section": "Guides",
+      "items": [
+        { "file": "guides/ai-collaboration.json", "title": "AI Collaboration" },
+        { "file": "guides/ai-workflow.json", "title": "AI Workflow" },
+        { "file": "guides/build-and-deploy.json", "title": "Build & Deploy" },
+        { "file": "guides/create-entity.json", "title": "Create Entity" },
+        { "file": "guides/create-project-template.json", "title": "Project Template" },
+        { "file": "guides/deployment-quick-guide.json", "title": "Deployment Quick Guide" },
+        { "file": "guides/hosting-setup.json", "title": "Hosting Setup" },
+        { "file": "guides/platform-automation.json", "title": "Platform Automation" },
+        { "file": "guides/rollback-procedure.json", "title": "Rollback Procedure" },
+        { "file": "guides/task-management.json", "title": "Task Management" },
+        { "file": "guides/testing.json", "title": "Testing" }
+      ]
+    },
+    {
+      "section": "Specs",
+      "items": [
+        { "file": "specs/makefile-reference.json", "title": "Makefile Reference" },
+        { "file": "specs/release-manifest-schema.json", "title": "Release Manifest Schema" },
+        { "file": "specs/tyt-architecture.json", "title": "TYT Architecture" }
+      ]
+    },
+    {
+      "section": "Tasks",
+      "items": [
+        { "pageKey": "tasks", "title": "All Tasks" },
+        { "pageKey": "tasksTodo", "title": "TODO" },
+        { "pageKey": "tasksProgress", "title": "In Progress" },
+        { "pageKey": "tasksDone", "title": "Done" }
+      ]
+    }
+  ]
+}

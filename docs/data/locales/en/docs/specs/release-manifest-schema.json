@@ -1,0 +1,188 @@
+{
+  "id": "specs.release-manifest-schema",
+  "version": "v2.0.0",
+  "category": "specs",
+  "title": "Release Manifest Schema",
+  "tags": ["schema", "manifest", "deployment", "metadata"],
+  "content": "JSON schema specification for .release-manifest.json file generated during build process.",
+  "links": [
+    {"text": "Build and Deploy Guide", "url": "#guides.build-and-deploy"}
+  ],
+  "items": [
+    {
+      "id": "RMS-01",
+      "title": "Schema overview",
+      "why": "Understand manifest purpose and structure",
+      "what": "Release manifest tracks metadata for each build",
+      "how": "File: .release-manifest.json in build-output folder — Contains version, git info, changes, backup refs, rollback command"
+    },
+    {
+      "id": "RMS-02",
+      "title": "Field: version",
+      "why": "Identify release version",
+      "what": "Semantic version string",
+      "how": "Format: 'vX.Y.Z' or 'X.Y.Z' — Example: 'v2.0.0' or '2.1.3'"
+    },
+    {
+      "id": "RMS-03",
+      "title": "Field: timestamp",
+      "why": "Record when build was created",
+      "what": "ISO 8601 timestamp in UTC",
+      "how": "Format: 'YYYY-MM-DDTHH:MM:SSZ' — Example: '2025-12-22T14:30:00Z'"
+    },
+    {
+      "id": "RMS-04",
+      "title": "Field: project",
+      "why": "Identify which project was built",
+      "what": "Project name string",
+      "how": "Example: 'doc-site', 'biggerdot', 'logshub'"
+    },
+    {
+      "id": "RMS-05",
+      "title": "Field: branch",
+      "why": "Track which git branch was built",
+      "what": "Git branch name",
+      "how": "Example: 'main', 'staging', 'dev-003-deployment-workflow'"
+    },
+    {
+      "id": "RMS-06",
+      "title": "Field: buildOutputPath",
+      "why": "Reference where build output is located",
+      "what": "Relative path to build output folder",
+      "how": "Format: 'projects/<name>/build-output/' — Example: 'projects/doc-site/build-output/'"
+    },
+    {
+      "id": "RMS-07",
+      "title": "Object: git",
+      "why": "Track git metadata for traceability",
+      "what": "Object with commit hash, tag, author",
+      "how": "Fields: commit (string, short hash), tag (string, git tag), author (string, committer name)"
+    },
+    {
+      "id": "RMS-08",
+      "title": "git.commit",
+      "why": "Reference exact code state",
+      "what": "Git commit hash (short or full)",
+      "how": "Example: 'fa5c97f' (short) or 'fa5c97f3a2b1c...' (full)"
+    },
+    {
+      "id": "RMS-09",
+      "title": "git.tag",
+      "why": "Version tag for rollback",
+      "what": "Git tag string",
+      "how": "Format: 'vX.Y.Z' — Example: 'v2.0.0'"
+    },
+    {
+      "id": "RMS-10",
+      "title": "git.author",
+      "why": "Know who created the release",
+      "what": "Name of person/system that built release",
+      "how": "Example: 'Norman', 'CI Bot', 'GitHub Actions'"
+    },
+    {
+      "id": "RMS-11",
+      "title": "Object: changes",
+      "why": "Track what changed in this release",
+      "what": "Object with file change counts and description",
+      "how": "Fields: filesAdded (number), filesModified (number), filesDeleted (number), totalChanged (number), description (string)"
+    },
+    {
+      "id": "RMS-12",
+      "title": "changes.filesAdded",
+      "why": "Count new files",
+      "what": "Number of files added since last release",
+      "how": "Example: 5 (integer)"
+    },
+    {
+      "id": "RMS-13",
+      "title": "changes.filesModified",
+      "why": "Count changed files",
+      "what": "Number of files modified since last release",
+      "how": "Example: 12 (integer)"
+    },
+    {
+      "id": "RMS-14",
+      "title": "changes.filesDeleted",
+      "why": "Count removed files",
+      "what": "Number of files deleted since last release",
+      "how": "Example: 2 (integer)"
+    },
+    {
+      "id": "RMS-15",
+      "title": "changes.totalChanged",
+      "why": "Total change summary",
+      "what": "Total files that changed (added + modified + deleted)",
+      "how": "Example: 19 (integer)"
+    },
+    {
+      "id": "RMS-16",
+      "title": "changes.description",
+      "why": "Describe what changed",
+      "what": "Human-readable description of changes",
+      "how": "Example: 'Added deployment infrastructure, updated rules, created build scripts'"
+    },
+    {
+      "id": "RMS-17",
+      "title": "Object: database",
+      "why": "Reference database backup information",
+      "what": "Object with backup location and timestamp",
+      "how": "Fields: backupLocation (string), backupTimestamp (string), note (string)"
+    },
+    {
+      "id": "RMS-18",
+      "title": "database.backupLocation",
+      "why": "Know where database backup is stored",
+      "what": "Path to backup file (created on hosting)",
+      "how": "Format: 'backups/vX.Y.Z-backup.tar.gz' — Example: 'backups/v2.0.0-backup.tar.gz'"
+    },
+    {
+      "id": "RMS-19",
+      "title": "database.backupTimestamp",
+      "why": "Know when backup was created",
+      "what": "ISO 8601 timestamp",
+      "how": "Format: 'YYYY-MM-DDTHH:MM:SSZ' — Example: '2025-12-22T14:28:00Z'"
+    },
+    {
+      "id": "RMS-20",
+      "title": "database.note",
+      "why": "Additional backup information",
+      "what": "Freeform note about backup",
+      "how": "Example: 'Database snapshot created on hosting before release'"
+    },
+    {
+      "id": "RMS-21",
+      "title": "Object: rollbackInfo",
+      "why": "Provide rollback instructions",
+      "what": "Object with rollback command and previous version",
+      "how": "Fields: rollbackCommand (string), previousVersion (string), note (string, optional)"
+    },
+    {
+      "id": "RMS-22",
+      "title": "rollbackInfo.rollbackCommand",
+      "why": "Quick rollback reference",
+      "what": "Shell command to rollback to previous version",
+      "how": "Example: 'git checkout v2.0.0 && restore_database_backup_v2.0.0'"
+    },
+    {
+      "id": "RMS-23",
+      "title": "rollbackInfo.previousVersion",
+      "why": "Know which version to rollback to",
+      "what": "Previous release version tag",
+      "how": "Format: 'vX.Y.Z' — Example: 'v1.9.9'"
+    },
+    {
+      "id": "RMS-24",
+      "title": "Field: releaseNotes",
+      "why": "Human-readable release summary",
+      "what": "Description of release highlights",
+      "how": "Example: 'Production release v2.0.0 with deployment workflow, 4 new rules, testing framework'"
+    },
+    {
+      "id": "RMS-25",
+      "title": "Complete example manifest",
+      "why": "See all fields together",
+      "what": "Full JSON example",
+      "how": "{\"version\":\"v2.0.0\",\"timestamp\":\"2025-12-22T14:30:00Z\",\"project\":\"doc-site\",\"branch\":\"main\",\"buildOutputPath\":\"projects/doc-site/build-output/\",\"git\":{\"commit\":\"fa5c97f\",\"tag\":\"v2.0.0\",\"author\":\"Norman\"},\"changes\":{\"filesAdded\":8,\"filesModified\":5,\"filesDeleted\":0,\"totalChanged\":13,\"description\":\"Deployment infrastructure\"},\"database\":{\"backupLocation\":\"backups/v2.0.0-backup.tar.gz\",\"backupTimestamp\":\"2025-12-22T14:28:00Z\",\"note\":\"Snapshot on hosting\"},\"rollbackInfo\":{\"rollbackCommand\":\"git checkout v1.9.9\",\"previousVersion\":\"v1.9.9\"},\"releaseNotes\":\"Production release with deployment workflow\"}"
+    }
+  ]
+}
