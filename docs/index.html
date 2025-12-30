@@ -122,6 +122,76 @@
   <script src="tyt.js"></script>
   <script src="define.js"></script>
   <script>
+    // Define and run modules
+    tyt.define({
+      name: 'main',
+      requires: ['entity/index','entity/common/dataLoader','entity/common/i18n','entity/common/render'],
+      fn: function(cfg) {
+        var i18n = tyt.lib.common.i18n;
+        var dataLoader = tyt.lib.common.dataLoader;
+        var render = tyt.lib.common.render;
+        
+        // Initialize i18n
+        i18n.init({
+          defaultLocale: cfg.defaultLocale || 'en',
+          supportedLocales: cfg.supportedLocales || ['en','vi','zh-TW'],
+          base: './'
+        });
+        
+        // Load and render navigation
+        i18n.loadManifest('./', function(err, manifest) {
+          if (err) {
+            console.error('Failed to load manifest:', err);
+            return;
+          }
+          
+          var nav = document.querySelector('nav');
+          if (!nav) return;
+          
+          var html = '';
+          manifest.navigation.forEach(function(section) {
+            html += '<div class="section">' + section.section + '</div>';
+            html += '<ul>';
+            section.items.forEach(function(item) {
+              if (item.file) {
+                html += '<li><a href="#" data-file="' + item.file + '">' + item.title + '</a></li>';
+              } else if (item.pageKey) {
+                html += '<li><a href="#" data-page-key="' + item.pageKey + '">' + item.title + '</a></li>';
+              }
+            });
+            html += '</ul>';
+          });
+          nav.innerHTML = html;
+          
+          // Add click handlers
+          var links = nav.querySelectorAll('a');
+          links.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+              e.preventDefault();
+              var file = this.getAttribute('data-file');
+              var pageKey = this.getAttribute('data-page-key');
+              
+              if (file) {
+                i18n.fetchDocForLocale('./', file, function(err, doc) {
+                  if (err) {
+                    console.error('Failed to load doc:', err);
+                    return;
+                  }
+                  render.renderDoc(doc, '#doc-render');
+                });
+              } else if (pageKey) {
+                // Handle special pages like tasks
+                console.log('Load page:', pageKey);
+              }
+            });
+          });
+        });
+      }
+    });
+    
+    tyt.exec('main');
+  </script>
+  <script>
     (function () {
       function escapeHtml(str) {
         if (!str) return '';
